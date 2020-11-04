@@ -24,23 +24,30 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool isSwitched = false;
+  bool _isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Switch")),
-        body: Switch(
-          value: isSwitched,
-          onChanged: (bool value) {
-            setState(() {
-              isSwitched = value;
-              print(value);
-            });
-          },
-          activeColor: Colors.redAccent,
-          activeTrackColor: Colors.blueAccent,
-          inactiveTrackColor: Colors.black,
-        ));
+      appBar: AppBar(title: Text("SwitchListTile")),
+      body: SwitchListTile(
+        value: _isSwitched,
+        onChanged: (bool value) {
+          setState(() {
+            _isSwitched = value;
+            print(value);
+          });
+        },
+        activeColor: Colors.redAccent,
+        activeTrackColor: Colors.blueAccent,
+        inactiveTrackColor: Colors.black,
+        title: Text("My SwitchListTile"),
+        subtitle: Text("This is Switch ListTile"),
+        selected: true,
+        secondary: Icon(Icons.home),
+        controlAffinity: ListTileControlAffinity.trailing,
+        dense: true,
+      ),
+    );
   }
 }
